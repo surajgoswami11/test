@@ -1,0 +1,176 @@
+/* Premium Executive Theme Variables */
+/* Inspired by Bloomberg Terminal, Linear, Stripe Dashboard */
+
+@layer base {
+  :root {
+    /* Refined Color Palette - Muted & Sophisticated */
+    --premium-charcoal: #0A0A0B;
+    --premium-slate: #18181B;
+    --premium-zinc: #27272A;
+    --premium-stone: #3F3F46;
+    
+    /* Subtle Accents - Only when needed */
+    --premium-blue: #3B5998;
+    --premium-indigo: #4F46E5;
+    --premium-emerald: #059669;
+    --premium-amber: #D97706;
+    
+    /* Refined Grays */
+    --premium-gray-50: #FAFAFA;
+    --premium-gray-100: #F4F4F5;
+    --premium-gray-200: #E4E4E7;
+    --premium-gray-300: #D4D4D8;
+    --premium-gray-400: #A1A1AA;
+    --premium-gray-500: #71717A;
+    --premium-gray-600: #52525B;
+    --premium-gray-700: #3F3F46;
+    --premium-gray-800: #27272A;
+    --premium-gray-900: #18181B;
+    
+    /* Layered Shadows - Multi-layer depth */
+    --shadow-premium-sm: 
+      0 1px 2px 0 rgba(0, 0, 0, 0.02),
+      0 1px 3px 0 rgba(0, 0, 0, 0.03);
+    
+    --shadow-premium-md: 
+      0 2px 4px -1px rgba(0, 0, 0, 0.03),
+      0 4px 6px -1px rgba(0, 0, 0, 0.05),
+      0 0 0 1px rgba(0, 0, 0, 0.02);
+    
+    --shadow-premium-lg: 
+      0 4px 6px -2px rgba(0, 0, 0, 0.03),
+      0 10px 15px -3px rgba(0, 0, 0, 0.05),
+      0 0 0 1px rgba(0, 0, 0, 0.02);
+    
+    --shadow-premium-xl: 
+      0 10px 25px -5px rgba(0, 0, 0, 0.05),
+      0 20px 40px -10px rgba(0, 0, 0, 0.08),
+      0 0 0 1px rgba(0, 0, 0, 0.02);
+    
+    /* Refined Typography */
+    --font-tracking-tight: -0.02em;
+    --font-tracking-normal: 0em;
+    --font-tracking-wide: 0.01em;
+    
+    /* Premium Spacing Scale */
+    --space-1: 0.25rem;  /* 4px */
+    --space-2: 0.5rem;   /* 8px */
+    --space-3: 0.75rem;  /* 12px */
+    --space-4: 1rem;     /* 16px */
+    --space-5: 1.25rem;  /* 20px */
+    --space-6: 1.5rem;   /* 24px */
+    --space-8: 2rem;     /* 32px */
+    --space-10: 2.5rem;  /* 40px */
+    --space-12: 3rem;    /* 48px */
+    --space-16: 4rem;    /* 64px */
+    
+    /* Glass Morphism */
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-blur: blur(24px);
+  }
+  
+  .dark {
+    /* Dark mode refinements */
+    --glass-bg: rgba(255, 255, 255, 0.02);
+    --glass-border: rgba(255, 255, 255, 0.06);
+  }
+}
+
+/* Premium Component Classes */
+@layer components {
+  /* Refined Card */
+  .premium-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    backdrop-filter: var(--glass-blur);
+    box-shadow: var(--shadow-premium-md);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .premium-card:hover {
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: var(--shadow-premium-lg);
+    transform: translateY(-1px);
+  }
+  
+  /* Refined Button */
+  .premium-button {
+    font-weight: 500;
+    letter-spacing: var(--font-tracking-tight);
+    padding: var(--space-3) var(--space-6);
+    border-radius: 10px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-premium-sm);
+  }
+  
+  .premium-button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-premium-md);
+  }
+  
+  .premium-button:active {
+    transform: translateY(0);
+  }
+  
+  /* Refined Typography */
+  .premium-heading {
+    font-weight: 600;
+    letter-spacing: var(--font-tracking-tight);
+    line-height: 1.2;
+  }
+  
+  .premium-body {
+    font-weight: 400;
+    letter-spacing: var(--font-tracking-normal);
+    line-height: 1.6;
+  }
+  
+  .premium-caption {
+    font-weight: 500;
+    letter-spacing: var(--font-tracking-wide);
+    text-transform: uppercase;
+    font-size: 0.6875rem; /* 11px */
+  }
+  
+  /* Layered Shadow Depth */
+  .depth-1 { box-shadow: var(--shadow-premium-sm); }
+  .depth-2 { box-shadow: var(--shadow-premium-md); }
+  .depth-3 { box-shadow: var(--shadow-premium-lg); }
+  .depth-4 { box-shadow: var(--shadow-premium-xl); }
+  
+  /* Drag and Drop Styles */
+  [draggable="true"] {
+    cursor: grab;
+    user-select: none;
+  }
+  
+  [draggable="true"]:active {
+    cursor: grabbing;
+  }
+  
+  [draggable="true"].dragging {
+    opacity: 0.5;
+    transform: scale(0.98);
+  }
+  
+  /* Marquee Animation for Ticker */
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  .animate-marquee {
+    display: inline-block;
+    animation: marquee 20s linear infinite;
+  }
+  
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+}
